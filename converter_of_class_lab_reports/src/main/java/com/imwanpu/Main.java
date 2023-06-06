@@ -64,7 +64,11 @@ class ReportFile {
         Student student = new Student(studentNumber, studentName);
         // 解析 student
         // 解析 experimentName
-        String experimentName = fileNameWithoutSuffixArray[2];
+        String experimentName = fileNameWithoutSuffix
+                .replaceFirst(studentName,"")
+                .replaceFirst("-","")
+                .replaceFirst(studentNumber,"")
+                .replaceFirst("-","");
         return new NameWithoutSuffix(student, experimentName);
         // 抽函数 ↑ 返回 nameWithoutSuffix
     }
